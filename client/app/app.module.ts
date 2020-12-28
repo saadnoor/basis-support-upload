@@ -24,7 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CustomerSupportComponent } from './customer-support/customer-support.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
+import {NgxIntlTelInputModule} from 'ngx-intl-tel-input';
 
 @NgModule({
   declarations: [

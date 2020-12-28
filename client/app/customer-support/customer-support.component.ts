@@ -7,7 +7,6 @@ import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 
   styleUrls: ['./customer-support.component.scss']
 })
 export class CustomerSupportComponent {
-  separateDialCode = false;
   SearchCountryField = SearchCountryField;
   TooltipLabel = TooltipLabel;
   CountryISO = CountryISO;
@@ -17,7 +16,7 @@ export class CustomerSupportComponent {
     phone: new FormControl(undefined, [Validators.required])
   });
 
-  changePreferredCountries() {
+  changePreferredCountries(): void {
     this.preferredCountries = [CountryISO.India, CountryISO.Canada];
   }
 }
