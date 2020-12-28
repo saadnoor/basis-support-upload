@@ -10,33 +10,16 @@
       </div>
   </div>
 
-<div style="margin: 50px">
-  <h1>Test International Telephone Input Form</h1>
-  <h2>Angular 10</h2>
-  <br>
-  <div class="wrapper">
-    <i><b style="color: orange">And yes, flags are not visible here. It's a Stackblitz only issue.</b></i>
-  </div>
-  <div class="wrapper">
-    <button (click)="changePreferredCountries()">Change Preferred Countries</button>
-  </div>
-  <div class="wrapper">
-    <input type="checkbox"
-           [(ngModel)]="separateDialCode">
-    <label>&nbsp;Separate Dial Code?</label>
-  </div>
+<div>
   <form #f="ngForm" [formGroup]="phoneForm">
     <div class="wrapper">
-      <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+      <ngx-intl-tel-input [preferredCountries]="preferredCountries"
                           [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
                           [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
                           [selectedCountryISO]="CountryISO.India" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
                           [phoneValidation]="true" [separateDialCode]="true"
                           [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phone">
       </ngx-intl-tel-input>
-    </div>
-    <div class="wrapper">
-      <button (click)="f.reset()">Reset</button>
     </div>
   </form>
 </div>
