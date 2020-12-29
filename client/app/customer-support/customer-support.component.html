@@ -1,25 +1,64 @@
 <div class="wrapper">
     <div class="container">
-      <h3>Upload the log file</h3>
-      <div class="upload-container">
-        <div class="border-container">
-          <input type="file" id="file-upload">
-          <p>Or Drag and drop the file here</p>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" class="form-control"
+            formControlName="email" id="email" placeholder="Enter email" type="email">
+          <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback d-block">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors">Email must be a valid email address</div>
+          </div>
         </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors }" class="form-control"
+            formControlName="name" id="name" placeholder="Enter your name" type="text">
+          <div *ngIf="f.name.touched && f.name.errors" class="invalid-feedback d-block">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+            <div *ngIf="f.name.errors">Name should have atleast 3 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input [ngClass]="{ 'is-invalid': f.companyName.touched && f.companyName.errors }" class="form-control"
+            formControlName="companyName" id="companyName" placeholder="Enter your company name" type="text">
+          <div *ngIf="f.companyName.touched && f.companyName.errors" class="invalid-feedback d-block">
+            <div *ngIf="f.companyName.errors.required">Company name is required</div>
+            <div *ngIf="f.companyName.errors">Company name should have atleast 3 characters</div>
+          </div>
+        </div>
+            <div class="form-group phone">
+              <label for="companyName">Phone</label>
+              <ngx-intl-tel-input class="phone-input"
+              [preferredCountries]="preferredCountries"
+              [enableAutoCountrySelect]="true" 
+              [enablePlaceholder]="true" 
+              [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" 
+              [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.Bangladesh" 
+              [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+              [phoneValidation]="true" 
+              [separateDialCode]="true"
+              name="phone" 
+              formControlName="phone">
+              </ngx-intl-tel-input>
+            </div>
+            <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback d-block">
+              <div class="text-right">Phone number is not valid</div>
+            </div>
+
+            <div class="upload-container">
+              <div class="border-container">
+                <input type="file" id="file-upload">
+                <p>Or Drag and drop the file here</p>
+              </div>
+            </div>
+            <button class="btn btn-block btn-primary" type="submit">Submit</button>
+          </form>
       </div>
+      <div class="image">
+        <img src="../../assets/man-upload-log.svg" alt="man upload logs" width="350" height="400">
       </div>
   </div>
-
-<div>
-  <form #f="ngForm" [formGroup]="phoneForm">
-    <div class="wrapper">
-      <ngx-intl-tel-input [preferredCountries]="preferredCountries"
-                          [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
-                          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
-                          [selectedCountryISO]="CountryISO.India" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
-                          [phoneValidation]="true" [separateDialCode]="true"
-                          [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phone">
-      </ngx-intl-tel-input>
-    </div>
-  </form>
-</div>

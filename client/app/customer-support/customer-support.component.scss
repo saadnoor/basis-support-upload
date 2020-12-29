@@ -10,10 +10,11 @@
   }
   
   .wrapper {
-    margin: auto;
-    max-width: 640px;
+    // margin: auto;
+    min-width: 600px;
+    display: flex;
+    justify-content: space-between;
     padding-top: 60px;
-    text-align: center;
   }
   
   .container {
@@ -37,6 +38,7 @@
     background-color: rgb(239, 239, 239);
     border-radius: 6px;
     padding: 10px;
+    margin-bottom: 30px;
   }
   
   .border-container {
@@ -66,4 +68,12 @@
     color: #95afc0;
     opacity: 0.55;
   }
+  .image{
+    margin-left: 50px;
+  }
+  .phone{
+    display: flex;
+    justify-content: space-between;
+  }
 
+  
