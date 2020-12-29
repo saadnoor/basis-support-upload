@@ -51,11 +51,18 @@
 
             <div class="upload-container">
               <div class="border-container">
-                <input type="file" id="file-upload">
+                <input type="file" 
+                accept=".ZIP,.TAR,.TGZ "
+                formControlName="file"
+                (change)="onFileChange($event.target.files)"
+                id="file-upload">
                 <p>Or Drag and drop the file here</p>
               </div>
+              <div *ngIf="f.file.errors && f.file.errors.fileSize" class="invalid-feedback d-block">
+                <div>File Size Exceeded</div>
+              </div>
             </div>
-            <button class="btn btn-block btn-primary" type="submit">Submit</button>
+            <button [disabled]="!form.valid" class="btn btn-block btn-primary" type="submit">Submit</button>
           </form>
       </div>
       <div class="image">

@@ -11,7 +11,8 @@ import { validationConfig } from './customer-support.validation';
 })
 export class CustomerSupportComponent {
   form: FormGroup;
-  submitted = false;
+  isFileSelected = false;
+
 
   returnUrl: string;
 
@@ -30,6 +31,7 @@ export class CustomerSupportComponent {
   ){
     this.buildForm();
   }
+
   // convenience getter for easy access to form fields
   get f(): any {
     return this.form.controls;
@@ -43,6 +45,9 @@ export class CustomerSupportComponent {
     this.preferredCountries = [CountryISO.India, CountryISO.Canada];
   }
 
+  onFileChange(files: File[]): void {
+    this.isFileSelected = true;
+  }
   onSubmit(): void {
     console.log(this.form);
   }
