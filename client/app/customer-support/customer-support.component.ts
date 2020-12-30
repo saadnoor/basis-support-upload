@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
+import { CatService } from '../services/cat.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { validationConfig } from './customer-support.validation';
 
@@ -12,7 +14,7 @@ import { validationConfig } from './customer-support.validation';
 export class CustomerSupportComponent {
   form: FormGroup;
   isFileSelected = false;
-
+  file: File;
 
   returnUrl: string;
 
@@ -21,13 +23,10 @@ export class CustomerSupportComponent {
   CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
   preferredCountries: CountryISO[] = [CountryISO.Bangladesh, CountryISO.Germany];
-  phoneForm = new FormGroup({
-    phone: new FormControl('', [Validators.required])
-  });
 
   constructor(
     private formBuilder: FormBuilder,
-    public toast: ToastComponent
+    public catService: CatService
   ){
     this.buildForm();
   }
@@ -46,9 +45,12 @@ export class CustomerSupportComponent {
   }
 
   onFileChange(files: File[]): void {
-    this.isFileSelected = true;
+    if(files.length > 0) this.file = files[0];
   }
   onSubmit(): void {
-    console.log(this.form);
+    console.log(this.form.value.file);
+    this.form.get('file').setValue(this.file);
+    // this.http.post('/api/upload',this.form.value);
+    this.catService.getCats().subscribe(cats => console.log(cats));
   }
 }

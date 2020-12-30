@@ -26,7 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
