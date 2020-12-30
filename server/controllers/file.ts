@@ -11,7 +11,7 @@ class FileCtrl extends BaseCtrl {
 
       console.log(fileInformation, file);
 
-      res.json({  fileInformation, fileName: file.originalname });
+      res.json({  fileInformation, fileName: file.location });
     } catch (error) {
       console.log(error.toLocaleString());
 
