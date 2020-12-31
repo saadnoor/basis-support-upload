@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { ReCaptchaV3Service } from 'ngx-captcha';
+import { ViewChild } from '@angular/core';
 import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 import { CatService } from '../services/cat.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { validationConfig } from './customer-support.validation';
 import { environment } from '../../environments/environment';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
+import { ReCaptcha2Component } from 'ngx-captcha';
 
 @Component({
   selector: 'app-customer-support',
@@ -17,7 +20,7 @@ export class CustomerSupportComponent {
   form: FormGroup;
   isFileSelected = false;
   file: File;
-
+  isLoading = false;
   returnUrl: string;
 
   SearchCountryField = SearchCountryField;
@@ -27,10 +30,28 @@ export class CustomerSupportComponent {
   preferredCountries: CountryISO[] = [CountryISO.Bangladesh, CountryISO.Germany];
   siteKey = environment.recapchaSiteKey;
 
+  @ViewChild('takeInput', {static: false}) 
+    
+  // this InputVar is a reference to our input. 
+    
+    InputVar: ElementRef; 
+
+    @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
+
+    
+  options: AnimationOptions = {
+    path: '/assets/loading.json',
+  };
+
+  optionsFileUpload: AnimationOptions = {
+    path: '/assets/file-upload.json',
+  };
+
   constructor(
     private formBuilder: FormBuilder,
     public catService: CatService,
-    public http: HttpClient
+    public http: HttpClient,
+    public toast: ToastComponent,
   ){
     this.buildForm();
   }
@@ -55,11 +76,29 @@ export class CustomerSupportComponent {
   }
 
   onSubmit(): void {
+    this.isLoading = true;
     const formData = new FormData();
     formData.append('file', this.file);
     formData.append('email', this.form.get('email').value);
     formData.append('name', this.form.get('name').value);
     formData.append('companyName', this.form.get('companyName').value);
-    this.http.post('/api/file', formData).subscribe( res => console.log(res));
+    this.http.post('/api/file', formData).subscribe( 
+    //   res => {
+
+    // }
+    res => {
+      this.toast.setMessage('Your informations uploaded Successfully!', 'success');
+      this.isLoading = false;
+      this.form.reset();
+      this.InputVar.nativeElement.value = ""; 
+      this.captchaElem.resetCaptcha();
+    },
+    error => this.toast.setMessage('Your file could not be updated. Try Again', 'danger')
+  );
+  
+  }
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 }

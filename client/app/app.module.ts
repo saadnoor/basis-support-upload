@@ -28,6 +28,12 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { CommonModule } from '@angular/common';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -57,6 +63,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     FormsModule,
     NgxCaptchaModule,
     NgxIntlTelInputModule,
+    LottieModule.forRoot({ player: playerFactory }),
     RxReactiveFormsModule,
     BrowserAnimationsModule
   ],

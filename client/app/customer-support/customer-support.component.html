@@ -52,7 +52,8 @@
             <div class="upload-and-capcha">
               <div class="upload-container">
                 <div class="border-container">
-                  <input type="file" 
+                  <input #takeInput
+                  type="file" 
                   accept=".ZIP,.TAR,.TGZ "
                   formControlName="file"
                   (change)="onFileChange($event.target.files)"
@@ -63,7 +64,8 @@
                   <div>File Size Exceeded</div>
                 </div>
               </div>
-              <ngx-recaptcha2 class="captcha"
+              <ngx-recaptcha2 #captchaElem
+              class="captcha"
               [siteKey]="siteKey"
               formControlName="recaptcha">
             </ngx-recaptcha2>
@@ -73,8 +75,15 @@
           </form>
       </div>
 
+      <ng-lottie *ngIf="isLoading" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+      <!-- <ng-lottie *ngIf="isLoading" [options]="optionsFileUpload" (animationCreated)="animationCreated($event)"></ng-lottie> -->
+
       
-      <div class="image">
+      
+      <div *ngIf="!isLoading" class="image">
         <img src="../../assets/man-upload-log.svg" alt="man upload logs" width="350" height="400">
       </div>
+      
   </div>
+
+  <!-- <div *ngIf="isLoading"><p class="text-center">Your information and file is being uploaded... </p></div> -->
