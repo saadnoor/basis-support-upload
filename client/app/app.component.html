@@ -10,7 +10,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-            <i class="fa fa-home"></i> Home
+            <i class="fa fa-home"></i> {{'home' | translate}}
           </a>
         </li>
         <li class="nav-item">
@@ -20,12 +20,12 @@
         </li>
         <li class="nav-item">
           <a routerLink="/login" class="nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-            <i class="fa fa-sign-in"></i> Login
+            <i class="fa fa-sign-in"></i> {{'login' | translate}}
           </a>
         </li>
         <li class="nav-item">
           <a routerLink="/register" class="nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-            <i class="fa fa-user-plus"></i> Register
+            <i class="fa fa-user-plus"></i> {{register}}
           </a>
         </li>
         <li class="nav-item">

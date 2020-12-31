@@ -1,0 +1,21 @@
+{
+    "email": "Email Address",
+    "emailRequired": "Email is required",
+    "emailValid": "Email must be a valid email address",
+    "name": "Name",
+    "nameRequired": "Name is required",
+    "nameMinChar": "Name should have atleast 3 characters",
+    "companyName": "Company Name",
+    "companyRequired": "Company name is required",
+    "companyNameMinChar": "Company name should have atleast 3 characters",
+    "phone": "Phone",
+    "phoneValid": "Phone number is not valid",
+    "dragFile": "Or Drag and drop the file here",
+    "fileSizeExceed": "File Size Exceeded",
+    "submit": "Submit",
+    "successfulSubmit": "Your Informations Has Been Updated Successfully!",
+    "errorSubmit": "Your Information could not be updated. Try Again",
+    "home": "Home",
+    "login": "Login",
+    "register": "Register"
+}

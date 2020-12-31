@@ -1,6 +1,8 @@
 // Angular
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -30,7 +32,15 @@ import { CommonModule } from '@angular/common';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 export function playerFactory() {
   return player;
 }
@@ -63,7 +73,18 @@ export function playerFactory() {
     FormsModule,
     NgxCaptchaModule,
     NgxIntlTelInputModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-center'
+    }),
+    BsDropdownModule.forRoot(),
     LottieModule.forRoot({ player: playerFactory }),
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
     RxReactiveFormsModule,
     BrowserAnimationsModule
   ],

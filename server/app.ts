@@ -9,12 +9,13 @@ import setRoutes from './routes';
 const app = express();
 
 dotenv.config();
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 3001));
 app.use('/', express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 async function main(): Promise<any> {
+  
   try {
     await setMongo();
     setRoutes(app);
