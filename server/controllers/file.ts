@@ -1,5 +1,7 @@
 import File from '../models/file';
 import BaseCtrl from './base';
+import emailBody from '../utils/email-template';
+ 
 
 class FileCtrl extends BaseCtrl {
   model = File;
@@ -7,11 +9,35 @@ class FileCtrl extends BaseCtrl {
   uploadFile = async (req, res) => {
     try {
       const fileInformation = req.body;
-      const file = req.file;
+      fileInformation.url = req.file.location;
+      
+      const obj = await new File(fileInformation).save();
 
-      console.log(fileInformation, file);
+      let email  = emailBody.replace("BASIS_FILE_URL", req.file.location);
+      email = email.replace("BASIS_COMPANY_NAME",fileInformation.companyName );
+      email = email.replace("BASIS_NAME", fileInformation.name);
+      email = email.replace("BASIS_EMAIL", fileInformation.email);
 
-      res.json({  fileInformation, fileName: file.location });
+      const sgMail = require('@sendgrid/mail');
+      sgMail.setApiKey("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");
+      const msg = {
+        to: 'saadnoor@cefalo.com', // Change to your recipient
+        from: 'saadnoors9@gmail.com', // Change to your verified sender
+        subject: 'Sending with SendGrid is Fun',
+        html: email,
+      }
+      sgMail
+        .send(msg)
+        .then(() => {
+          console.log('Email sent')
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+
+
+      res.json(obj );
+
     } catch (error) {
       console.log(error.toLocaleString());
 

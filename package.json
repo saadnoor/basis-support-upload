@@ -34,6 +34,7 @@
     "@angular/router": "~11.0.0",
     "@auth0/angular-jwt": "^5.0.1",
     "@rxweb/reactive-form-validators": "^2.1.2",
+    "@sendgrid/mail": "^7.4.0",
     "aws-sdk": "^2.819.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.3",

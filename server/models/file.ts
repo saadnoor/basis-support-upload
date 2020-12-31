@@ -4,7 +4,7 @@ const fileSchema = new mongoose.Schema({
   name: String,
   url: String,
   uploadTime: Date,
-  uploaderEmail: String,
+  email: String,
   isDeleted: { type: Boolean, default: false },
   companyName: String,
   phone: String

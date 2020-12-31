@@ -26,7 +26,8 @@ export class CustomerSupportComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    public catService: CatService
+    public catService: CatService,
+    public http: HttpClient
   ){
     this.buildForm();
   }
@@ -48,9 +49,12 @@ export class CustomerSupportComponent {
     if(files.length > 0) this.file = files[0];
   }
   onSubmit(): void {
-    console.log(this.form.value.file);
-    this.form.get('file').setValue(this.file);
-    // this.http.post('/api/upload',this.form.value);
-    this.catService.getCats().subscribe(cats => console.log(cats));
+    const formData = new FormData();
+    formData.append('file', this.file);
+    formData.append('email', this.form.get('email').value);
+    formData.append('name', this.form.get('name').value);
+    formData.append('companyName', this.form.get('companyName').value);
+    
+    this.http.post('/api/file', formData).subscribe( res => console.log(res));
   }
 }
