@@ -62,9 +62,16 @@
                 <div>File Size Exceeded</div>
               </div>
             </div>
+            <ngx-recaptcha2 #captchaElem
+            [siteKey]="siteKey"
+
+            formControlName="recaptcha">
+          </ngx-recaptcha2>
             <button [disabled]="!form.valid" class="btn btn-block btn-primary" type="submit">Submit</button>
           </form>
       </div>
+
+      
       <div class="image">
         <img src="../../assets/man-upload-log.svg" alt="man upload logs" width="350" height="400">
       </div>

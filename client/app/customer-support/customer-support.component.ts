@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ReCaptchaV3Service } from 'ngx-captcha';
 import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 import { CatService } from '../services/cat.service';
 import { ToastComponent } from '../shared/toast/toast.component';
@@ -23,7 +24,7 @@ export class CustomerSupportComponent {
   CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
   preferredCountries: CountryISO[] = [CountryISO.Bangladesh, CountryISO.Germany];
-
+  siteKey="6LdQaRsaAAAAAOxvfFUYfTPASmqEJe9uOG3SzfSG";
   constructor(
     private formBuilder: FormBuilder,
     public catService: CatService,

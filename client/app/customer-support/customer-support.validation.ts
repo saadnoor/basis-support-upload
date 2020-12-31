@@ -6,5 +6,6 @@ export const validationConfig = {
   name: ['', [Validators.required, Validators.minLength(3)]],
   companyName: ['', [Validators.required, Validators.minLength(3)]],
   phone: [''],
-  file: [null, [Validators.required, RxwebValidators.fileSize({maxSize: 10485760})]]
+  file: [null, [Validators.required, RxwebValidators.fileSize({maxSize: 10485760})]],
+  recaptcha: ['', Validators.required]
 };

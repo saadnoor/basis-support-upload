@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { CommonModule } from '@angular/common';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CommonModule } from '@angular/common';
       }
     }),
     FormsModule,
+    NgxCaptchaModule,
     NgxIntlTelInputModule,
     RxReactiveFormsModule,
     BrowserAnimationsModule
