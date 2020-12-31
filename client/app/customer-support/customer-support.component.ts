@@ -49,16 +49,17 @@ export class CustomerSupportComponent {
   }
 
   onFileChange(files: File[]): void {
-    if(files.length > 0) this.file = files[0];
+    if (files.length > 0) {
+      this.file = files[0];
+    }
   }
-  
+
   onSubmit(): void {
     const formData = new FormData();
     formData.append('file', this.file);
     formData.append('email', this.form.get('email').value);
     formData.append('name', this.form.get('name').value);
     formData.append('companyName', this.form.get('companyName').value);
-    
     this.http.post('/api/file', formData).subscribe( res => console.log(res));
   }
 }
