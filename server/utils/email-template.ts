@@ -350,7 +350,7 @@ a.es-button, button.es-button {
                   <td width="250" align="left"> 
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation"> 
                      <tr> 
-                      <td class="es-infoblock es-m-txt-c" align="right"><p style="font-family: arial, helvetica\ neue, helvetica, sans-serif">Put your preheader text here</p></td> 
+                      <td class="es-infoblock es-m-txt-c" align="right"><p style="font-family: arial, helvetica\ neue, helvetica, sans-serif">Basis Europe, a leading software company</p></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -439,7 +439,7 @@ a.es-button, button.es-button {
                       <td align="left" class="es-p10b"><p><a target="_blank" href="https://www.basis-europe.eu">Browser</a> | <a target="_blank" href="https://www.basis-europe.eu">Forward</a> | <a target="_blank" class="unsubscribe">Unsubscribe</a></p></td> 
                      </tr> 
                      <tr> 
-                      <td align="left"><p>Copyright © 2021&nbsp;<strong>Company Name</strong>, All Rights Reserved.</p></td> 
+                      <td align="left"><p>Copyright © 2021&nbsp;<strong>Basis Europe</strong>, All Rights Reserved.</p></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
