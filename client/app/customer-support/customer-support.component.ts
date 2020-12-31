@@ -6,6 +6,7 @@ import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 
 import { CatService } from '../services/cat.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { validationConfig } from './customer-support.validation';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-customer-support',
@@ -24,7 +25,8 @@ export class CustomerSupportComponent {
   CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
   preferredCountries: CountryISO[] = [CountryISO.Bangladesh, CountryISO.Germany];
-  siteKey="6LdQaRsaAAAAAOxvfFUYfTPASmqEJe9uOG3SzfSG";
+  siteKey = environment.recapchaSiteKey;
+
   constructor(
     private formBuilder: FormBuilder,
     public catService: CatService,
@@ -49,6 +51,7 @@ export class CustomerSupportComponent {
   onFileChange(files: File[]): void {
     if(files.length > 0) this.file = files[0];
   }
+  
   onSubmit(): void {
     const formData = new FormData();
     formData.append('file', this.file);

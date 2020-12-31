@@ -39,6 +39,7 @@
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 30px;
+    margin-right: 15px;
   }
   
   .border-container {
@@ -75,5 +76,10 @@
     display: flex;
     justify-content: space-between;
   }
-
-  
+  .upload-and-capcha {
+    display: flex;
+    justify-content: space-between;
+  }
+  .captcha {
+    margin-top: 30px;
+  }

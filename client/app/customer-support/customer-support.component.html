@@ -49,24 +49,26 @@
               <div class="text-right">Phone number is not valid</div>
             </div>
 
-            <div class="upload-container">
-              <div class="border-container">
-                <input type="file" 
-                accept=".ZIP,.TAR,.TGZ "
-                formControlName="file"
-                (change)="onFileChange($event.target.files)"
-                id="file-upload">
-                <p>Or Drag and drop the file here</p>
+            <div class="upload-and-capcha">
+              <div class="upload-container">
+                <div class="border-container">
+                  <input type="file" 
+                  accept=".ZIP,.TAR,.TGZ "
+                  formControlName="file"
+                  (change)="onFileChange($event.target.files)"
+                  id="file-upload">
+                  <p>Or Drag and drop the file here</p>
+                </div>
+                <div *ngIf="f.file.errors && f.file.errors.fileSize" class="invalid-feedback d-block">
+                  <div>File Size Exceeded</div>
+                </div>
               </div>
-              <div *ngIf="f.file.errors && f.file.errors.fileSize" class="invalid-feedback d-block">
-                <div>File Size Exceeded</div>
-              </div>
+              <ngx-recaptcha2 class="captcha"
+              [siteKey]="siteKey"
+              formControlName="recaptcha">
+            </ngx-recaptcha2>
             </div>
-            <ngx-recaptcha2 #captchaElem
-            [siteKey]="siteKey"
 
-            formControlName="recaptcha">
-          </ngx-recaptcha2>
             <button [disabled]="!form.valid" class="btn btn-block btn-primary" type="submit">Submit</button>
           </form>
       </div>
