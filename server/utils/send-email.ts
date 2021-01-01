@@ -1,6 +1,7 @@
 import emailBody from './email-template';
 
-export function sendEmailOnFileUpload(fileInfo: any) {
+export function sendEmailOnFileUpload(fileInfo: any, receiverEmailId: String) {
+    if(!receiverEmailId) return;
 
     let email  = emailBody.replace("BASIS_FILE_URL", fileInfo.url);
     email = email.replace("BASIS_COMPANY_NAME",fileInfo.companyName );
@@ -10,7 +11,7 @@ export function sendEmailOnFileUpload(fileInfo: any) {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey("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");
     const msg = {
-      to: 'saadnoor@cefalo.com',
+      to: receiverEmailId,
       from: 'saadnoors9@gmail.com', 
       subject: 'New File Uploaded',
       html: email,
