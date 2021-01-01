@@ -7,15 +7,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 // Services
-import { CatService } from './services/cat.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 // Components
 import { AppComponent } from './app.component';
-import { CatsComponent } from './cats/cats.component';
-import { AddCatFormComponent } from './add-cat-form/add-cat-form.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -36,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { CustomerSupportService } from './services/customer-support.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,8 +46,6 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     AppComponent,
-    CatsComponent,
-    AddCatFormComponent,
     AboutComponent,
     RegisterComponent,
     LoginComponent,
@@ -92,7 +88,7 @@ export function playerFactory() {
     AuthService,
     AuthGuardLogin,
     AuthGuardAdmin,
-    CatService,
+    CustomerSupportService,
     UserService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

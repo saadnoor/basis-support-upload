@@ -3,7 +3,6 @@ import { Component, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
-import { CatService } from '../services/cat.service';
 import { validationConfig } from './customer-support.validation';
 import { environment } from '../../environments/environment';
 import { AnimationItem } from 'lottie-web';
@@ -11,6 +10,7 @@ import { AnimationOptions } from 'ngx-lottie';
 import { ReCaptcha2Component } from 'ngx-captcha';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { CustomerSupportService } from '../services/customer-support.service';
 
 @Component({
   selector: 'app-customer-support',
@@ -42,9 +42,9 @@ export class CustomerSupportComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    public catService: CatService,
     public http: HttpClient,
     public translateService: TranslateService,
+    public customerSupportService: CustomerSupportService,
     private toastr: ToastrService
   ){
     this.buildForm();
@@ -77,26 +77,14 @@ export class CustomerSupportComponent {
     formData.append('email', this.form.get('email').value);
     formData.append('name', this.form.get('name').value);
     formData.append('companyName', this.form.get('companyName').value);
-    this.http.post('/api/file', formData).subscribe( 
-
+    this.customerSupportService.uploadFile(formData)
+    .subscribe( 
     () => {
-      this.translateService.get('successfulSubmit')
-      .subscribe( val => {
-        this.toastr.success(val );
-      });
-    
-      this.isLoading = false;
-      this.form.reset();
-      this.InputVar.nativeElement.value = ""; 
-      this.captchaElem.resetCaptcha();
+      this.handleSuccessfulUpload();
     },
 
     () => {
-      this.isLoading = false;
-      this.translateService.get('errorSubmit')
-      .subscribe( val => {
-        this.toastr.warning(val);
-       });
+      this.handleUploadError();
     }
   );
   }
@@ -108,5 +96,25 @@ export class CustomerSupportComponent {
   onLanguageChange(language) :void{
     this.translateService.use(language);
     this.capchaLang = language;
+  }
+
+  handleSuccessfulUpload() {
+    this.translateService.get('successfulSubmit')
+    .subscribe( val => {
+      this.toastr.success(val );
+    });
+  
+    this.isLoading = false;
+    this.form.reset();
+    this.InputVar.nativeElement.value = ""; 
+    this.captchaElem.resetCaptcha();
+  }
+
+  handleUploadError() {
+    this.isLoading = false;
+    this.translateService.get('errorSubmit')
+    .subscribe( val => {
+      this.toastr.warning(val);
+     });
   }
 }

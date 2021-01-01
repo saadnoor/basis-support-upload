@@ -1,7 +1,6 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CatService } from '../services/cat.service';
 
 import { CustomerSupportComponent } from './customer-support.component';
 
@@ -14,7 +13,6 @@ describe('CustomerSupportComponent', () => {
       imports: [ReactiveFormsModule, FormsModule],
       declarations: [ CustomerSupportComponent ],
       providers: [
-        CatService,
         HttpClient,
         HttpHandler,
       ],
