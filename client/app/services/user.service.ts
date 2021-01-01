@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { User } from '../shared/models/user.model';
+import { NotificationEmail } from '../shared/models/notificationEmail.model';
 
 @Injectable()
 export class UserService {
@@ -41,4 +42,11 @@ export class UserService {
     return this.http.delete(`/api/user/${user._id}`, { responseType: 'text' });
   }
 
+  getNotificationEmail(): Observable<NotificationEmail[]> {
+    return this.http.get<NotificationEmail[]>(`/api/notificationEmail`);
+  }
+
+  editNotificationEmail(notificationEmail: NotificationEmail): Observable<any> {
+    return this.http.put(`/api/notificationEmail/${notificationEmail._id}`, notificationEmail, { responseType: 'text' });
+  }
 }

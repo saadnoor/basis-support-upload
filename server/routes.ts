@@ -3,12 +3,21 @@ import CatCtrl from './controllers/cat';
 import UserCtrl from './controllers/user';
 import FileCtrl from './controllers/file';
 import upload from './middleware/file-upload';
+import NotificationEmailCtrl from './controllers/notificationEmail';
 
 function setRoutes(app): void {
   const router = express.Router();
   const catCtrl = new CatCtrl();
   const userCtrl = new UserCtrl();
   const fileCtrl = new FileCtrl();
+  const notificationEmailCtrl = new NotificationEmailCtrl();
+
+// Notification Email
+router.route('/notificationEmail').get(notificationEmailCtrl.getAll);
+router.route('/notificationEmail/count').get(notificationEmailCtrl.count);
+router.route('/notificationEmail/:id').put(notificationEmailCtrl.update);
+router.route('/notificationEmail/:id').delete(notificationEmailCtrl.delete);
+router.route('/notificationEmail').post(notificationEmailCtrl.insert);
 
  // Files
  router.route('/files').get(fileCtrl.getAll);

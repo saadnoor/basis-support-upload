@@ -35,3 +35,24 @@
     </table>
   </div>
 </div>
+
+<div class="card" *ngIf="!isLoading">
+  <h4 class="card-header text-center">Notification Receiving Email</h4>
+  <div class="card-body">
+    <form *ngIf="isEmailLoaded" #emailForm="ngForm" (ngSubmit)="saveEmail(email)">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="email"
+               [(ngModel)]="email.email" placeholder="Email" required>
+      </div>
+    
+      <button class="btn btn-primary" type="submit" [disabled]="!emailForm.form.valid">
+        <i class="fa fa-save"></i> Save
+      </button>
+    </form>
+  </div>
+</div>

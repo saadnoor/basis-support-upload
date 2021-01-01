@@ -14,7 +14,7 @@ class FileCtrl extends BaseCtrl {
       const obj = await new File(fileInformation).save();
 
       sendEmailOnFileUpload(fileInformation);
-
+      console.log('eshche');
       res.json(obj );
 
     } catch (error) {

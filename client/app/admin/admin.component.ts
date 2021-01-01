@@ -4,6 +4,7 @@ import { ToastComponent } from '../shared/toast/toast.component';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { User } from '../shared/models/user.model';
+import { NotificationEmail } from '../shared/models/notificationEmail.model';
 
 @Component({
   selector: 'app-admin',
@@ -13,13 +14,23 @@ export class AdminComponent implements OnInit {
 
   users: User[] = [];
   isLoading = true;
+  email: NotificationEmail;
+  isEmailLoaded = false;
 
   constructor(public auth: AuthService,
               public toast: ToastComponent,
-              private userService: UserService) { }
+              private userService: UserService) {
+
+               }
 
   ngOnInit(): void {
     this.getUsers();
+    this.userService.getNotificationEmail().subscribe( res => {
+      if(res.length > 0) {
+        this.email = res[0];
+        this.isEmailLoaded = true;
+      }
+    });
   }
 
   getUsers(): void {
@@ -38,6 +49,11 @@ export class AdminComponent implements OnInit {
         () => this.getUsers()
       );
     }
+  }
+
+  saveEmail(email: NotificationEmail) {
+    this.isLoading = true;
+    this.userService.editNotificationEmail(email).subscribe( () => this.isLoading = false);
   }
 
 }
