@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Cat } from '../shared/models/cat.model';
-
 @Injectable()
 export class CustomerSupportService {
 
