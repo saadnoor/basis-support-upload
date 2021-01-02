@@ -2,7 +2,7 @@
 
 <app-toast [message]="toast.message"></app-toast>
 
-<div class="card" *ngIf="!isLoading">
+<div class="card text-center" *ngIf="!isLoading">
   <h4 class="card-header">Registered users ({{users.length}})</h4>
   <div class="card-body">
     <table class="table table-bordered">
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<div class="card" *ngIf="!isLoading">
+<div class="card text-center" *ngIf="!isLoading">
   <h4 class="card-header text-center">Notification Receiving Email</h4>
   <div class="card-body">
     <form *ngIf="isEmailLoaded" #emailForm="ngForm" (ngSubmit)="saveEmail(email)">
@@ -57,6 +57,6 @@
   </div>
 </div>
 
-<app-file-list >
+<app-file-list>
 
 </app-file-list>

@@ -1,4 +1,4 @@
-<div class="card" *ngIf="!isFileLoaded">
+<div class="card text-center" *ngIf="!isFileLoaded">
     <h4 class="card-header">Uploaded Files</h4>
     <div class="card-body">
       <table class="table table-bordered">
@@ -11,8 +11,8 @@
           </tr>
         </thead>
         <tbody *ngIf="files.length === 0">
-          <tr>
-            <td colspan="4">There are no registered users.</td>
+          <tr class="text-center">
+            <td colspan="4">You didn't upload any file yet</td>
           </tr>  
         </tbody>
         <tbody>

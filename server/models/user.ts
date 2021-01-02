@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   username: String,
   email: { type: String, unique: true, lowercase: true, trim: true },
   password: String,
+  companyName: String,
   role: String
 });
 
@@ -13,7 +14,7 @@ userSchema.pre('save', function(next): void {
   const user = this;
   if (!user.isModified('password')) { return next(); }
   bcrypt.genSalt(10, (err, salt) => {
-    if (err) { 
+    if (err) {
       return next(err);
      }
     bcrypt.hash(user.password, salt, (error, hash) => {

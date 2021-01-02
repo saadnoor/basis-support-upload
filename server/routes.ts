@@ -13,19 +13,20 @@ function setRoutes(app): void {
   const notificationEmailCtrl = new NotificationEmailCtrl();
 
 // Notification Email
-router.route('/notificationEmail').get(notificationEmailCtrl.getAll);
-router.route('/notificationEmail/count').get(notificationEmailCtrl.count);
-router.route('/notificationEmail/:id').put(notificationEmailCtrl.update);
-router.route('/notificationEmail/:id').delete(notificationEmailCtrl.delete);
-router.route('/notificationEmail').post(notificationEmailCtrl.insert);
+  router.route('/notificationEmail').get(notificationEmailCtrl.getAll);
+  router.route('/notificationEmail/count').get(notificationEmailCtrl.count);
+  router.route('/notificationEmail/:id').put(notificationEmailCtrl.update);
+  router.route('/notificationEmail/:id').delete(notificationEmailCtrl.delete);
+  router.route('/notificationEmail').post(notificationEmailCtrl.insert);
 
  // Files
- router.route('/files').get(fileCtrl.getAll);
- router.route('/files/count').get(fileCtrl.count);
- router.route('/file').post(upload.single('file'),fileCtrl.uploadFile);
- router.route('/file/:id').get(fileCtrl.get);
- router.route('/file/:id').put(fileCtrl.update);
- router.route('/file/:id').delete(fileCtrl.delete);
+  router.route('/files').get(fileCtrl.getAll);
+  router.route('/files/:email').get(fileCtrl.getFilesByEmail);
+  router.route('/files/count').get(fileCtrl.count);
+  router.route('/file').post(upload.single('file'), fileCtrl.uploadFile);
+  router.route('/file/:id').get(fileCtrl.get);
+  router.route('/file/:id').put(fileCtrl.update);
+  router.route('/file/:id').delete(fileCtrl.delete);
 
   // Cats
   router.route('/cats').get(catCtrl.getAll);

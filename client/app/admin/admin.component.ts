@@ -12,7 +12,6 @@ import { NotificationEmail } from '../shared/models/notificationEmail.model';
 })
 export class AdminComponent implements OnInit {
 
-  salehin = 'saadnoor@gmail.com';
   users: User[] = [];
   files: any[] = [];
   isLoading = true;

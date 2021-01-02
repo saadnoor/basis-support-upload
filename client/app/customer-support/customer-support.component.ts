@@ -11,6 +11,8 @@ import { ReCaptcha2Component } from 'ngx-captcha';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { CustomerSupportService } from '../services/customer-support.service';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-customer-support',
@@ -32,7 +34,7 @@ export class CustomerSupportComponent {
   preferredCountries: CountryISO[] = [CountryISO.Bangladesh, CountryISO.Germany];
   siteKey = environment.recapchaSiteKey;
 
-  @ViewChild('takeInput', {static: false}) 
+  @ViewChild('takeInput', {static: false})
   InputVar: ElementRef; 
   @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
 
@@ -43,6 +45,8 @@ export class CustomerSupportComponent {
   constructor(
     private formBuilder: FormBuilder,
     public http: HttpClient,
+    private auth: AuthService,
+    private userService: UserService,
     public translateService: TranslateService,
     public customerSupportService: CustomerSupportService,
     private toastr: ToastrService
@@ -57,7 +61,12 @@ export class CustomerSupportComponent {
   }
 
   buildForm(): void {
+    console.log(this.auth.currentUser);
+
     this.form = this.formBuilder.group(validationConfig);
+    this.form.get('email').setValue(this.auth.currentUser.email);
+    this.form.get('name').setValue(this.auth.currentUser.username);
+    this.form.get('companyName').setValue(this.auth.currentUser.companyName);
   }
 
   changePreferredCountries(): void {
