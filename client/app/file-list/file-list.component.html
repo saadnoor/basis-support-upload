@@ -1,19 +1,19 @@
 <div class="card text-center" *ngIf="!isFileLoaded">
-    <h4 class="card-header">Uploaded Files</h4>
+    <h4 class="card-header">{{ 'uploadedFiles' | translate }}</h4>
     <div class="card-body">
       <table class="table table-bordered">
         <thead class="thead-light">
           <tr>
-            <th scope="col">File Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">CompanyName</th>
-            <th scope="col">Actions</th>
+            <th scope="col">{{ 'fileName' | translate }}</th>
+            <th scope="col">{{ 'email' | translate }}</th>
+            <th scope="col">{{ 'companyName' | translate }}</th>
+            <th scope="col">{{ 'actions' | translate }}</th>
           </tr>
         </thead>
         <tbody *ngIf="files.length === 0">
           <tr class="text-center">
-            <td colspan="4">You didn't upload any file yet</td>
-          </tr>  
+            <td colspan="4">{{ 'noUploadMsg' | translate }}</td>
+          </tr>
         </tbody>
         <tbody>
           <tr *ngFor="let file of files">
@@ -22,10 +22,10 @@
             <td>{{file.companyName}}</td>
             <td>
               <button class="btn btn-sm btn-primary" (click)="downloadFile(file)">
-                <i class="fa fa-cloud"></i> Download
+                <i class="fa fa-cloud"></i> {{ 'download' | translate }}
               </button>
             </td>
-          </tr>  
+          </tr>
         </tbody>
       </table>
     </div>

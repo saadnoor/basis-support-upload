@@ -1,7 +1,7 @@
 <app-toast [message]="toast.message"></app-toast>
 
 <div class="card">
-  <h4 class="card-header">Register</h4>
+  <h4 class="card-header">{{ 'register' | translate }}</h4>
   <div class="card-body">
     <div class="wrapper">
       <form class="register-form" [formGroup]="registerForm" (ngSubmit)="register()">
@@ -48,13 +48,13 @@
             </span>
           </div>
           <select class="custom-select" name="role" formControlName="role">
-            <option value="" selected disabled>Role</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
+            <option value="" selected disabled>{{ 'role' | translate }}</option>
+            <option value="user">{{'user' | translate }}</option>
+            <option value="admin">{{ 'admin' | translate }}</option>
           </select>
         </div>
         <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">
-          <i class="fa fa-user-plus"></i> Register
+          <i class="fa fa-user-plus"></i> {{ 'register' |translate }}
         </button>
       </form>
 
@@ -62,6 +62,6 @@
         <img src="../../assets/register.svg" alt="register user" width="350" height="400">
       </div>
     </div>
-   
+
   </div>
 </div>

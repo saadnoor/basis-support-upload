@@ -1,7 +1,7 @@
 <app-toast [message]="toast.message"></app-toast>
 
 <div class="card">
-  <h4 class="card-header">Login</h4>
+  <h4 class="card-header">{{ 'login' | translate }}</h4>
   <div class="card-body">
     <div class="wrapper">
       <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -24,14 +24,13 @@
                  formControlName="password" placeholder="Password">
         </div>
         <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
-          <i class="fa fa-sign-in"></i> Login
+          <i class="fa fa-sign-in"></i> {{ 'login' | translate }}
         </button>
       </form>
       <div class="image">
         <img src="../../assets/login.svg" alt="man upload logs" width="350" height="400">
       </div>
     </div>
-    
 
 
   </div>

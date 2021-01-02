@@ -17,5 +17,19 @@
     "errorSubmit": "Your Information could not be updated. Try Again",
     "home": "Home",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "logout": "Logout",
+    "notFound": "Not Found Demo",
+    "admin": "Admin",
+    "role": "Role",
+    "user": "User",
+    "404NotFound": "404 Not Found",
+    "404msg": "The page you requested was not found",
+    "go-to": "Go To",
+    "fileName": "File Name",
+    "actions": "Actions",
+    "noUploadMsg": "You didn't upload any file yet",
+    "download": "Download",
+    "my-account": "My Account",
+    "uploadedFiles": "Uploaded Files"
 }
