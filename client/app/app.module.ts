@@ -34,6 +34,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { CustomerSupportService } from './services/customer-support.service';
+import { FileListComponent } from './file-list/file-list.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -53,7 +54,8 @@ export function playerFactory() {
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
-    CustomerSupportComponent
+    CustomerSupportComponent,
+    FileListComponent
   ],
   imports: [
     AppRoutingModule,

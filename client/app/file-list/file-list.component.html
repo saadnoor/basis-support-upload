@@ -1,0 +1,32 @@
+<div class="card" *ngIf="!isFileLoaded">
+    <h4 class="card-header">Uploaded Files</h4>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">File Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">CompanyName</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="files.length === 0">
+          <tr>
+            <td colspan="4">There are no registered users.</td>
+          </tr>  
+        </tbody>
+        <tbody>
+          <tr *ngFor="let file of files">
+            <td>{{file.name}}</td>
+            <td>{{file.email}}</td>
+            <td>{{file.companyName}}</td>
+            <td>
+              <button class="btn btn-sm btn-primary" (click)="downloadFile(file)">
+                <i class="fa fa-cloud"></i> Download
+              </button>
+            </td>
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+  </div>
