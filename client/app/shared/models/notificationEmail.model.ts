@@ -3,4 +3,3 @@ export class NotificationEmail {
     _id?: string;
     email?: string;
   }
-  

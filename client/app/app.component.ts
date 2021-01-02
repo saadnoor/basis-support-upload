@@ -8,16 +8,15 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements AfterViewChecked {
 
-  constructor(public auth: AuthService,
+  constructor(
+    public auth: AuthService,
     public translate: TranslateService,
-    private changeDetector: ChangeDetectorRef) { 
+    private changeDetector: ChangeDetectorRef) {
           translate.setDefaultLang('en');
           translate.use('en');
-    }
+  }
 
-  // This fixes: https://github.com/DavideViolante/Angular-Full-Stack/issues/105
   ngAfterViewChecked(): void {
     this.changeDetector.detectChanges();
   }
-
 }

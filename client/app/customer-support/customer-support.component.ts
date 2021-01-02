@@ -78,7 +78,7 @@ export class CustomerSupportComponent {
     formData.append('name', this.form.get('name').value);
     formData.append('companyName', this.form.get('companyName').value);
     this.customerSupportService.uploadFile(formData)
-    .subscribe( 
+    .subscribe(
     () => {
       this.handleSuccessfulUpload();
     },
@@ -103,7 +103,7 @@ export class CustomerSupportComponent {
     .subscribe( val => {
       this.toastr.success(val );
     });
-  
+
     this.isLoading = false;
     this.form.reset();
     this.InputVar.nativeElement.value = ""; 
