@@ -26,6 +26,10 @@ export class RegisterComponent implements OnInit {
     Validators.minLength(3),
     Validators.maxLength(100)
   ]);
+  companyName = new FormControl('', [
+    Validators.minLength(3),
+    Validators.maxLength(100)
+  ]);
   password = new FormControl('', [
     Validators.required,
     Validators.minLength(6)
@@ -44,6 +48,7 @@ export class RegisterComponent implements OnInit {
       username: this.username,
       email: this.email,
       password: this.password,
+      companyName: this.companyName,
       role: this.role
     });
   }
@@ -54,6 +59,10 @@ export class RegisterComponent implements OnInit {
 
   setClassEmail(): object {
     return { 'has-danger': !this.email.pristine && !this.email.valid };
+  }
+
+  setClassCompanyName(): object {
+    return { 'has-danger': !this.companyName.pristine && !this.companyName.valid };
   }
 
   setClassPassword(): object {
