@@ -14,11 +14,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/cats" class="nav-link" routerLinkActive="active">
-            <i class="fa fa-list"></i> Cats
-          </a>
-        </li>
-        <li class="nav-item">
           <a routerLink="/login" class="nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
             <i class="fa fa-sign-in"></i> {{'login' | translate}}
           </a>
@@ -41,6 +36,11 @@
         <li class="nav-item">
           <a routerLink="/logout" class="nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
             <i class="fa fa-sign-out"></i> Logout
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/notfound" class="nav-link" routerLinkActive="active">
+            <i class="fa fa-list"></i> Not Found Demo
           </a>
         </li>
       </ul>

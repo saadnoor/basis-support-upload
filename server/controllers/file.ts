@@ -28,7 +28,6 @@ class FileCtrl extends BaseCtrl {
 
   getFilesByEmail = async (req, res) => {
     try {
-
       const files = await File.find({ email: req.params.email });
 
       res.json(files);

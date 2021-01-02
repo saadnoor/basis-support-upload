@@ -15,7 +15,6 @@ export class AdminComponent implements OnInit {
   users: User[] = [];
   files: any[] = [];
   isLoading = true;
-  isFileLoading = true;
   email: NotificationEmail;
   isEmailLoaded = false;
 

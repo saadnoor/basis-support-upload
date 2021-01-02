@@ -13,7 +13,6 @@ import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 // Components
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -28,7 +27,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { CommonModule } from '@angular/common';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
+import player, { LottiePlayer } from 'lottie-web';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -37,17 +36,16 @@ import { CustomerSupportService } from './services/customer-support.service';
 import { FileListComponent } from './file-list/file-list.component';
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
-export function playerFactory() {
+export function playerFactory(): LottiePlayer {
   return player;
 }
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
     RegisterComponent,
     LoginComponent,
     LogoutComponent,

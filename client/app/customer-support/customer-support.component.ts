@@ -21,21 +21,18 @@ import { UserService } from '../services/user.service';
 })
 export class CustomerSupportComponent {
   form: FormGroup;
-  isFileSelected = false;
   file: File;
   isLoading = false;
-  returnUrl: string;
-  capchaLang: string;
+  captchaLang: string;
 
   SearchCountryField = SearchCountryField;
   TooltipLabel = TooltipLabel;
   CountryISO = CountryISO;
-  PhoneNumberFormat = PhoneNumberFormat;
   preferredCountries: CountryISO[] = [CountryISO.Bangladesh, CountryISO.Germany];
   siteKey = environment.recapchaSiteKey;
 
   @ViewChild('takeInput', {static: false})
-  InputVar: ElementRef; 
+  InputVar: ElementRef;
   @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
 
   options: AnimationOptions = {
@@ -52,7 +49,7 @@ export class CustomerSupportComponent {
     private toastr: ToastrService
   ){
     this.buildForm();
-    this.capchaLang = this.translateService.currentLang;
+    this.captchaLang = this.translateService.currentLang;
   }
 
   // convenience getter for easy access to form fields
@@ -61,16 +58,15 @@ export class CustomerSupportComponent {
   }
 
   buildForm(): void {
-    console.log(this.auth.currentUser);
-
     this.form = this.formBuilder.group(validationConfig);
+
+    this.formInitializer();
+  }
+
+  formInitializer(): void {
     this.form.get('email').setValue(this.auth.currentUser.email);
     this.form.get('name').setValue(this.auth.currentUser.username);
     this.form.get('companyName').setValue(this.auth.currentUser.companyName);
-  }
-
-  changePreferredCountries(): void {
-    this.preferredCountries = [CountryISO.India, CountryISO.Canada];
   }
 
   onFileChange(files: File[]): void {
@@ -91,7 +87,6 @@ export class CustomerSupportComponent {
     () => {
       this.handleSuccessfulUpload();
     },
-
     () => {
       this.handleUploadError();
     }
@@ -102,12 +97,12 @@ export class CustomerSupportComponent {
     console.log(animationItem);
   }
 
-  onLanguageChange(language) :void{
+  onLanguageChange(language): void {
     this.translateService.use(language);
-    this.capchaLang = language;
+    this.captchaLang = language;
   }
 
-  handleSuccessfulUpload() {
+  handleSuccessfulUpload(): void {
     this.translateService.get('successfulSubmit')
     .subscribe( val => {
       this.toastr.success(val );
@@ -115,11 +110,12 @@ export class CustomerSupportComponent {
 
     this.isLoading = false;
     this.form.reset();
-    this.InputVar.nativeElement.value = ""; 
+    this.InputVar.nativeElement.value = '';
     this.captchaElem.resetCaptcha();
+    this.formInitializer();
   }
 
-  handleUploadError() {
+  handleUploadError(): void {
     this.isLoading = false;
     this.translateService.get('errorSubmit')
     .subscribe( val => {

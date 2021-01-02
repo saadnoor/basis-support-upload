@@ -1,5 +1,4 @@
 import * as express from 'express';
-import CatCtrl from './controllers/cat';
 import UserCtrl from './controllers/user';
 import FileCtrl from './controllers/file';
 import upload from './middleware/file-upload';
@@ -7,7 +6,6 @@ import NotificationEmailCtrl from './controllers/notificationEmail';
 
 function setRoutes(app): void {
   const router = express.Router();
-  const catCtrl = new CatCtrl();
   const userCtrl = new UserCtrl();
   const fileCtrl = new FileCtrl();
   const notificationEmailCtrl = new NotificationEmailCtrl();
@@ -27,14 +25,6 @@ function setRoutes(app): void {
   router.route('/file/:id').get(fileCtrl.get);
   router.route('/file/:id').put(fileCtrl.update);
   router.route('/file/:id').delete(fileCtrl.delete);
-
-  // Cats
-  router.route('/cats').get(catCtrl.getAll);
-  router.route('/cats/count').get(catCtrl.count);
-  router.route('/cat').post(catCtrl.insert);
-  router.route('/cat/:id').get(catCtrl.get);
-  router.route('/cat/:id').put(catCtrl.update);
-  router.route('/cat/:id').delete(catCtrl.delete);
 
   // Users
   router.route('/login').post(userCtrl.login);

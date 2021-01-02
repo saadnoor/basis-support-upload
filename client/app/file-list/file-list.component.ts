@@ -19,7 +19,6 @@ export class FileListComponent implements OnInit {
     public customerSupportService: CustomerSupportService) { }
 
   ngOnInit(): void {
-    console.log('the email i got is', this.email);
     if (this.email) {
       this.getFilesByEmail(this.email);
     }

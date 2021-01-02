@@ -1,15 +1,16 @@
+<app-toast [message]="toast.message"></app-toast>
+
 <div class="language-selector">
   <select class="custom-select"
 
   (change)="onLanguageChange($event.target.value)"
-  
+
   name="role">
     <option value="" selected disabled>Language</option>
     <option value="en">English</option>
     <option value="bn">Bangla</option>
   </select>
 </div>
-
 
 <div class="wrapper">
     <div class="container">
@@ -45,16 +46,16 @@
               <label for="phone">{{'phone' | translate}}</label>
               <ngx-intl-tel-input class="phone-input"
               [preferredCountries]="preferredCountries"
-              [enableAutoCountrySelect]="true" 
-              [enablePlaceholder]="true" 
+              [enableAutoCountrySelect]="true"
+              [enablePlaceholder]="true"
               [searchCountryFlag]="true"
-              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" 
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
               [selectFirstCountry]="false"
-              [selectedCountryISO]="CountryISO.Bangladesh" 
+              [selectedCountryISO]="CountryISO.Bangladesh"
               [maxLength]="15" [tooltipField]="TooltipLabel.Name"
-              [phoneValidation]="true" 
+              [phoneValidation]="true"
               [separateDialCode]="true"
-              name="phone" 
+              name="phone"
               formControlName="phone">
               </ngx-intl-tel-input>
             </div>
@@ -66,7 +67,7 @@
               <div class="upload-container">
                 <div class="border-container">
                   <input #takeInput
-                  type="file" 
+                  type="file"
                   accept=".ZIP,.TAR,.TGZ "
                   formControlName="file"
                   (change)="onFileChange($event.target.files)"
@@ -80,7 +81,7 @@
               <ngx-recaptcha2 #captchaElem
               class="captcha"
               [siteKey]="siteKey"
-              [hl]="capchaLang"
+              [hl]="captchaLang"
               formControlName="recaptcha">
             </ngx-recaptcha2>
             </div>
@@ -93,12 +94,9 @@
 
         <ng-lottie *ngIf="isLoading" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
 
-      
-      
         <div *ngIf="!isLoading" class="image">
           <img src="../../assets/man-upload-log.svg" alt="man upload logs" width="350" height="400">
         </div>
       </div>
 
-      
   </div>
