@@ -91,3 +91,37 @@
   }
 
 
+
+  @media only screen and (max-width: 600px) {
+    .wrapper {
+        // margin: auto;
+        // display: flex;
+        flex-direction: column;
+        // justify-content: space-around;
+        // padding-top: 60px;
+        min-width: 350px;
+      }
+      .register-form {
+        max-width: 30px;
+      }
+
+      .phone{
+        flex-direction: column;
+      }
+
+      .upload-and-capcha {
+        flex-direction: column;
+      }
+
+      .captcha {
+        margin-bottom: 5px;
+      }
+
+      .upload-container {
+        margin-bottom: -10px;
+      }
+
+      .border-container input {
+        max-width: 220px;
+      }
+  }
