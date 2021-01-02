@@ -10,13 +10,14 @@ class FileCtrl extends BaseCtrl {
     try {
       const fileInformation = req.body;
       fileInformation.url = req.file.location;
+      fileInformation.fileName = req.file.originalname;
+
       const emails = await NotificationEmail.find();
 
       const obj = await new File(fileInformation).save();
       if (emails.length > 0) {
         sendEmailOnFileUpload(fileInformation, emails[0].email );
       }
-      console.log('eshche');
       res.json(obj );
 
     } catch (error) {

@@ -1,6 +1,5 @@
 import * as dotenv from 'dotenv';
 import * as express from 'express';
-import * as morgan from 'morgan';
 import * as path from 'path';
 
 import setMongo from './mongo';
@@ -15,7 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 async function main(): Promise<any> {
-  
   try {
     await setMongo();
     setRoutes(app);

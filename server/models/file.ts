@@ -7,6 +7,7 @@ const fileSchema = new mongoose.Schema({
   email: String,
   isDeleted: { type: Boolean, default: false },
   companyName: String,
+  fileName: String,
   phone: String
 });
 
