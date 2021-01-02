@@ -1,7 +1,6 @@
-let emailBody = `<!doctype html>
+const emailBody = `<!doctype html>
 <html ⚡4email>
- <head><meta charset="utf-8"><style amp4email-boilerplate>body{visibility:hidden}</style><script async src="https://cdn.ampproject.org/v0.js"></script> 
-   
+ <head><meta charset="utf-8"><style amp4email-boilerplate>body{visibility:hidden}</style><script async src="https://cdn.ampproject.org/v0.js"></script>
   <style amp-custom>
 a[x-apple-data-detectors] {
 	color:inherit;
@@ -314,53 +313,53 @@ a.es-button, button.es-button {
 	text-align:center;
 }
 @media only screen and (max-width:600px) {p, ul li, ol li, a { font-size:17px; line-height:150% } h1 { font-size:30px; text-align:center; line-height:120% } h2 { font-size:26px; text-align:left; line-height:120% } h3 { font-size:20px; text-align:left; line-height:120% } h1 a { font-size:30px; text-align:center } h2 a { font-size:20px; text-align:left } h3 a { font-size:20px; text-align:left } .es-menu td a { font-size:16px } .es-header-body p, .es-header-body ul li, .es-header-body ol li, .es-header-body a { font-size:16px } .es-footer-body p, .es-footer-body ul li, .es-footer-body ol li, .es-footer-body a { font-size:17px } .es-infoblock p, .es-infoblock ul li, .es-infoblock ol li, .es-infoblock a { font-size:12px } *[class="gmail-fix"] { display:none } .es-m-txt-c, .es-m-txt-c h1, .es-m-txt-c h2, .es-m-txt-c h3 { text-align:center } .es-m-txt-r, .es-m-txt-r h1, .es-m-txt-r h2, .es-m-txt-r h3 { text-align:right } .es-m-txt-l, .es-m-txt-l h1, .es-m-txt-l h2, .es-m-txt-l h3 { text-align:left } .es-m-txt-r amp-img { float:right } .es-m-txt-c amp-img { margin:0 auto } .es-m-txt-l amp-img { float:left } .es-button-border { display:inline-block } .es-btn-fw { border-width:10px 0px; text-align:center } .es-adaptive table, .es-btn-fw, .es-btn-fw-brdr, .es-left, .es-right { width:100% } .es-content table, .es-header table, .es-footer table, .es-content, .es-footer, .es-header { width:100%; max-width:600px } .es-adapt-td { display:block; width:100% } .adapt-img { width:100%; height:auto } td.es-m-p0 { padding:0px } td.es-m-p0r { padding-right:0px } td.es-m-p0l { padding-left:0px } td.es-m-p0t { padding-top:0px } td.es-m-p0b { padding-bottom:0 } td.es-m-p20b { padding-bottom:20px } .es-mobile-hidden, .es-hidden { display:none } tr.es-desk-hidden, td.es-desk-hidden, table.es-desk-hidden { width:auto; overflow:visible; float:none; max-height:inherit; line-height:inherit } tr.es-desk-hidden { display:table-row } table.es-desk-hidden { display:table } td.es-desk-menu-hidden { display:table-cell } .es-menu td { width:1% } table.es-table-not-adapt, .esd-block-html table { width:auto } table.es-social { display:inline-block } table.es-social td { display:inline-block } a.es-button, button.es-button { font-size:14px; display:inline-block; border-width:15px 25px 15px 25px } }
-</style> 
- </head> 
- <body> 
-  <div class="es-wrapper-color"> 
+</style>
+ </head>
+ <body>
+  <div class="es-wrapper-color">
    <!--[if gte mso 9]>
 			<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
 				<v:fill type="tile" color="#f1f1f1"></v:fill>
 			</v:background>
-		<![endif]--> 
-   <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0"> 
-     <tr> 
-      <td valign="top"> 
-       <table class="es-header" cellspacing="0" cellpadding="0" align="center"> 
-         <tr> 
-          <td align="center"> 
+		<![endif]-->
+   <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+     <tr>
+      <td valign="top">
+       <table class="es-header" cellspacing="0" cellpadding="0" align="center">
+         <tr>
+          <td align="center">
            <table class="es-header-body" style="background-color: transparent" width="600" cellspacing="0" cellpadding="0" align="center"> 
-             <tr> 
+             <tr>
               <td class="es-p30t es-p30b es-p40r es-p40l" align="left"> 
                <!--[if mso]><table width="520" cellpadding="0" 
                         cellspacing="0"><tr><td width="250" valign="top"><![endif]--> 
                <table class="es-left" cellspacing="0" cellpadding="0" align="left"> 
-                 <tr> 
+                 <tr>
                   <td class="es-m-p20b" width="250" align="left"> 
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation"> 
-                     <tr> 
+                     <tr>
                       <td align="left" style="font-size:0"><a href="https://viewstripo.email" target="_blank"><amp-img src="https://oknelt.stripocdn.email/content/guids/CABINET_85e4431b39e3c4492fca561009cef9b5/images/92961521447916451.png" alt style="display: block" width="57" height="13"></amp-img></a></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table> 
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table>
                <!--[if mso]></td><td width="20"></td><td width="250" valign="top"><![endif]--> 
                <table class="es-right" cellspacing="0" cellpadding="0" align="right"> 
-                 <tr> 
+                 <tr>
                   <td width="250" align="left"> 
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation"> 
-                     <tr> 
+                     <tr>
                       <td class="es-infoblock es-m-txt-c" align="right"><p style="font-family: arial, helvetica\ neue, helvetica, sans-serif">Basis Europe, a leading software company</p></td> 
-                     </tr> 
-                   </table></td> 
-                 </tr> 
-               </table> 
-               <!--[if mso]></td></tr></table><![endif]--></td> 
-             </tr> 
-           </table></td> 
-         </tr> 
-       </table> 
-       <table class="es-content" cellspacing="0" cellpadding="0" align="center"> 
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table>
+               <!--[if mso]></td></tr></table><![endif]--></td>
+             </tr>
+           </table></td>
+         </tr>
+       </table>
+       <table class="es-content" cellspacing="0" cellpadding="0" align="center">
          <tr> 
           <td align="center"> 
            <table class="es-content-body" style="border-left:1px solid #dddddd;border-right:1px solid #dddddd;border-top:1px solid #dddddd;border-bottom:1px solid #dddddd" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center"> 

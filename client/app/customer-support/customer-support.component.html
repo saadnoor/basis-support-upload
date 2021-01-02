@@ -36,7 +36,7 @@
         <div class="form-group">
           <label for="companyName">{{'companyName' | translate}}</label>
           <input [ngClass]="{ 'is-invalid': f.companyName.touched && f.companyName.errors }" class="form-control"
-            formControlName="companyName" id="companyName" type="text">
+            formControlName="companyName" id="company-name" type="text">
           <div *ngIf="f.companyName.touched && f.companyName.errors" class="invalid-feedback d-block">
             <div *ngIf="f.companyName.errors.required">{{'companyRequired' | translate}}</div>
             <div *ngIf="f.companyName.errors">{{'companyNameMinChar' | translate}}</div>
