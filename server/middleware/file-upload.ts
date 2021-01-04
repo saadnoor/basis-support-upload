@@ -3,9 +3,9 @@ const multer  = require('multer');
 import * as AWS from 'aws-sdk';
 const multerS3 = require('multer-s3');
 
-const BUCKET_NAME = 'basis-europe';
-const IAM_USER_KEY = 'AKIA5CDIZQJKVE2TONPT';
-const IAM_USER_SECRET = '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';
+const BUCKET_NAME = process.env.BUCKET_NAME;
+const IAM_USER_KEY = process.env.IAM_USER_KEY;
+const IAM_USER_SECRET = process.env.IAM_USER_SECRET;
 
 const s3bucket = new AWS.S3({
   accessKeyId: IAM_USER_KEY,

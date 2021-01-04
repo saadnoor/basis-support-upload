@@ -15,6 +15,7 @@ class FileCtrl extends BaseCtrl {
       const emails = await NotificationEmail.find();
 
       const obj = await new File(fileInformation).save();
+
       if (emails.length > 0) {
         sendEmailOnFileUpload(fileInformation, emails[0].email );
       }

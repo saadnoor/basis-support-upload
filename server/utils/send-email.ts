@@ -1,4 +1,5 @@
 import emailBody from './email-template';
+const sgMail = require('@sendgrid/mail');
 
 export function sendEmailOnFileUpload(fileInfo: any, receiverEmailId: string): any {
     if (!receiverEmailId) { return; }
@@ -8,8 +9,7 @@ export function sendEmailOnFileUpload(fileInfo: any, receiverEmailId: string): a
     email = email.replace('BASIS_NAME', fileInfo.name);
     email = email.replace('BASIS_EMAIL', fileInfo.email);
 
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey('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');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
       to: receiverEmailId,
       from: 'saadnoors9@gmail.com',
